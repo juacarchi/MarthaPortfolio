@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martha Paredes Pagliera — Content Strategist &amp; Learning Experience Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FDF8F0;
+    --cream-2: #F8EFDE;
+    --ink: #2B2438;
+    --ink-soft: #6A6178;
+    --coral: #E85D6B;
+    --coral-tint: #FBE0E1;
+    --olive: #77824C;
+    --olive-tint: #E8ECD9;
+    --sky: #4E86A0;
+    --sky-tint: #DDEBEF;
+    --sun: #EFA83D;
+    --sun-tint: #FBEAD1;
+    --paper-line: #E4D9C4;
+    --card-shadow: 6px 6px 0 rgba(43,36,56,0.08);
+    --focus: #4E86A0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --cream: #241F2E;
+      --cream-2: #2C2637;
+      --ink: #F4EEE3;
+      --ink-soft: #C6BFCE;
+      --coral-tint: #4A2C33;
+      --olive-tint: #333B26;
+      --sky-tint: #253640;
+      --sun-tint: #3E3220;
+      --paper-line: #453D52;
+      --card-shadow: 6px 6px 0 rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream: #241F2E; --cream-2: #2C2637; --ink: #F4EEE3; --ink-soft: #C6BFCE;
+    --coral-tint: #4A2C33; --olive-tint: #333B26; --sky-tint: #253640; --sun-tint: #3E3220;
+    --paper-line: #453D52; --card-shadow: 6px 6px 0 rgba(0,0,0,0.35);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4{ font-family: 'Baloo 2', system-ui, sans-serif; line-height: 1.15; margin: 0; color: var(--ink); }
+  a{ color: inherit; }
+  img,svg{ max-width: 100%; display:block; }
+  :focus-visible{ outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  /* NAV */
+  header.nav{
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--cream) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid var(--paper-line);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding: 16px 28px; max-width: 1120px; margin: 0 auto; }
+  .nav-name{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size: 1.2rem; text-decoration:none; }
+  .nav-name span{ color: var(--coral); }
+  .nav-links{ display:flex; gap: 28px; list-style:none; padding:0; margin:0; font-weight:600; font-size: 0.95rem; }
+  .nav-links a{ text-decoration:none; }
+  .nav-links a:hover{ color: var(--coral); }
+  .nav-cta{ background: var(--ink); color: var(--cream); padding: 9px 18px; border-radius: 100px; font-weight:700; font-size:0.92rem; text-decoration:none; white-space:nowrap; }
+  @media (max-width: 760px){ .nav-links{ display:none; } }
+
+  /* HERO */
+  .hero{ position: relative; padding: 68px 0 84px; overflow: hidden; }
+  .hero-blob{ position:absolute; border-radius: 50%; opacity: 0.55; filter: blur(2px); z-index:0; }
+  .blob-1{ width:220px; height:220px; background: var(--sun-tint); top:-60px; right:6%; }
+  .blob-2{ width:160px; height:160px; background: var(--sky-tint); bottom:-40px; left:2%; }
+  .hero-inner{ position:relative; z-index:1; max-width: 760px; }
+  .hero-kicker{ font-family:'Baloo 2', sans-serif; font-weight:700; color: var(--coral); font-size: 1.05rem; margin-bottom: 14px; }
+  .hero h1{ font-size: clamp(1.9rem, 3.6vw, 2.7rem); font-weight: 700; }
+  .hero .role{ margin-top: 16px; font-size: 1.15rem; font-weight: 700; color: var(--ink-soft); }
+  .hero-tags{ margin-top: 22px; display:flex; gap:10px; flex-wrap:wrap; }
+  .htag{ font-size: 0.85rem; font-weight:700; padding: 7px 14px; border-radius: 100px; background: var(--cream-2); border: 2px solid var(--paper-line); }
+  .hero-actions{ margin-top: 32px; display:flex; gap: 16px; flex-wrap: wrap; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding: 13px 26px; border-radius: 100px; font-weight: 700; font-size: 1rem; text-decoration:none; border: 2px solid transparent; cursor:pointer; }
+  .btn-primary{ background: var(--coral); color: #fff; }
+  .btn-primary:hover{ background: #d94e5d; }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: var(--cream); }
+
+  /* SOBRE MI + TRAYECTORIA */
+  .about{ background: var(--cream-2); border-top: 2px solid var(--paper-line); border-bottom: 2px solid var(--paper-line); padding: 84px 0; }
+  .about-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 52px; align-items:start; }
+  @media (max-width: 860px){ .about-grid{ grid-template-columns: 1fr; } }
+  .about-portrait{ aspect-ratio: 4/5; border-radius: 20px; background: linear-gradient(160deg, var(--sun-tint), var(--coral-tint)); border: 2px solid var(--paper-line); overflow:hidden; }
+  .about-portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .about h2{ font-size: clamp(1.7rem, 3.2vw, 2.35rem); max-width: 22ch; }
+  .about h2 .accent{ color: var(--coral); }
+  .about-copy p{ margin: 18px 0 0; color: var(--ink-soft); font-size: 1.05rem; }
+  .about-copy blockquote{ margin: 24px 0 0; padding: 18px 22px; border-left: 4px solid var(--coral); background: var(--cream); border-radius: 4px 14px 14px 4px; font-weight: 700; color: var(--ink); font-size: 1.02rem; }
+  .stats-row{ display:flex; gap: 14px; flex-wrap:wrap; margin-top: 26px; align-items:center; }
+  .stat-big{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size: 1.5rem; color: var(--coral); }
+
+  .timeline{ margin-top: 56px; }
+  .timeline-row{ margin-top: 32px; display:grid; grid-template-columns: repeat(5, 1fr); gap: 18px; position:relative; }
+  .timeline-row::before{ content:""; position:absolute; top: 26px; left: 5%; right: 5%; height: 2px; background-image: linear-gradient(to right, var(--paper-line) 60%, transparent 40%); background-size: 14px 2px; z-index:0; }
+  @media (max-width: 900px){ .timeline-row{ grid-template-columns: 1fr 1fr; } .timeline-row::before{ display:none; } }
+  @media (max-width: 560px){ .timeline-row{ grid-template-columns: 1fr; } }
+  .tstep{ position:relative; z-index:1; text-align:left; }
+  .tstep .icon{ width: 84px; height:84px; margin-bottom: 10px; }
+  .tstep .icon img{ width:100%; height:100%; object-fit:contain; }
+  .tstep h4{ font-size: 0.95rem; margin-bottom: 4px; }
+  .tstep p{ color: var(--ink-soft); font-size: 0.85rem; margin:0; }
+
+  /* PROYECTOS */
+  section#proyectos{ padding: 88px 0; }
+  .eyebrow-free-heading{ font-size: clamp(1.7rem, 3vw, 2.3rem); max-width: 30ch; }
+  .section-lede{ margin-top: 14px; color: var(--ink-soft); max-width: 60ch; font-size: 1.05rem; }
+
+  .case-block{ margin-top: 64px; display:grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items:center; }
+  .case-block:nth-child(odd) .case-media{ order: 2; }
+  @media (max-width: 860px){
+    .case-block{ grid-template-columns: 1fr; }
+    .case-block:nth-child(odd) .case-media{ order: 0; }
+  }
+  .case-media{ border-radius: 20px; overflow:hidden; border: 2px solid var(--paper-line); box-shadow: var(--card-shadow); }
+  .case-media img{ width:100%; height:100%; object-fit:cover; }
+  .case-media.two-up{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; background: var(--cream-2); padding: 10px; box-shadow:none; }
+  .case-media.two-up img{ border-radius: 12px; aspect-ratio: 3/4; object-fit: cover; }
+  .case-media.stack{ display:block; box-shadow:none; border:none; }
+  .case-media.stack img{ width:100%; height:auto; object-fit:contain; border-radius: 16px; border: 2px solid var(--paper-line); }
+
+  .case-tag{ font-size: 0.85rem; font-weight:700; color: var(--ink-soft); }
+  .case-block h3{ font-size: 1.5rem; margin-top: 6px; }
+  .case-block p.desc{ margin-top: 14px; color: var(--ink-soft); font-size: 1rem; }
+
+  .aportacion{ margin-top: 20px; }
+  .aportacion .label{ font-weight:700; font-size: 0.95rem; margin-bottom: 8px; }
+  .skill-tags{ display:flex; gap:8px; flex-wrap:wrap; }
+  .skill-tag{ font-size: 0.78rem; font-weight:700; padding: 6px 12px; border-radius: 100px; }
+
+  .flow{ margin-top: 22px; display:flex; gap: 8px; flex-wrap:wrap; align-items:center; }
+  .flow-step{ font-size: 0.78rem; font-weight:700; padding: 7px 13px; border-radius: 100px; }
+  .flow-arrow{ color: var(--ink-soft); font-weight:700; }
+  .flow-strip{ margin-top: 22px; width: 100%; height: auto; }
+
+  .muestras{ margin-top: 22px; }
+  .muestras .label{ font-weight:700; font-size: 0.9rem; margin-bottom: 10px; color: var(--ink-soft); }
+  .muestra-list{ display:flex; gap:10px; flex-wrap:wrap; }
+  .muestra-chip{ font-size: 0.85rem; font-weight:700; padding: 9px 16px; border-radius: 100px; background: var(--cream-2); border: 2px solid var(--paper-line); text-decoration:none; color: var(--ink); }
+  .muestra-chip.link{ background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .muestra-chip.pending{ opacity: 0.6; font-weight:600; }
+
+  .divider{ height: 2px; margin: 64px 0 0; background-image: linear-gradient(to right, var(--paper-line) 60%, transparent 40%); background-size: 16px 2px; }
+
+  .books-block{ margin-top: 64px; }
+  .books-block h3{ font-size: 1.5rem; margin-top: 6px; }
+  .books-grid{ margin-top: 28px; display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 620px; }
+  @media (max-width: 600px){ .books-grid{ grid-template-columns: repeat(2, 1fr); max-width: 100%; } }
+  .book img{ width:100%; border-radius: 12px; border: 2px solid var(--paper-line); box-shadow: var(--card-shadow); aspect-ratio: 3/4; object-fit: cover; }
+  .book p{ margin: 10px 0 0; font-size: 0.85rem; font-weight:700; text-align:center; color: var(--ink-soft); }
+
+  /* CONTACTO */
+  .contact{ background: var(--ink); color: var(--cream); text-align:left; border-radius: 28px; margin: 0 28px 88px; padding: 64px 48px; }
+  .contact h2{ color: var(--cream); font-size: clamp(1.8rem, 3.5vw, 2.6rem); max-width: 22ch; }
+  .contact p{ color: #D8D2E2; max-width: 46ch; margin-top: 14px; font-size: 1.05rem; }
+  .contact .btn-primary{ margin-top: 28px; }
+  @media (max-width: 600px){ .contact{ padding: 44px 28px; margin: 0 16px 64px; } }
+
+  footer{ text-align:center; padding: 32px 0 48px; color: var(--ink-soft); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-name">Martha<span>.</span>Paredes</a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Hablemos</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-kicker">Martha Paredes Pagliera</div>
+      <h1>Transformo contenidos e historias en experiencias que invitan a descubrir, aprender y participar.</h1>
+      <div class="role">Content Strategist &amp; Learning Experience Designer</div>
+      <div class="hero-tags">
+        <span class="htag">Storytelling</span>
+        <span class="htag">Learning Design</span>
+        <span class="htag">Editorial</span>
+        <span class="htag">Product Thinking</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn-ghost">Escríbeme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MI + TRAYECTORIA -->
+  <section class="about" id="sobre-mi">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-portrait">
+          <img src="images/martha.jpg" alt="Martha Paredes Pagliera junto a un personaje animado de uno de sus proyectos">
+        </div>
+        <div>
+          <h2>Siempre he trabajado con historias. <span class="accent">Lo que ha cambiado es dónde viven.</span></h2>
+          <div class="about-copy">
+            <p>Llevo más de 25 años trabajando con contenidos. Empecé en televisión, creando y desarrollando formatos de entretenimiento, y con el tiempo esa experiencia se extendió al branded content, la narrativa infantil, el mundo editorial y los productos digitales de aprendizaje.</p>
+            <p>En los últimos años he trabajado especialmente en la intersección entre <strong>contenido, storytelling y experiencia</strong>, participando en el desarrollo de ecosistemas donde una misma idea puede convertirse en vídeo, lectura, juego digital, libro interactivo, actividad o experiencia fuera de la pantalla.</p>
+            <blockquote>Me interesa especialmente ese lugar en el que el contenido deja de ser una pieza aislada y empieza a formar parte de una experiencia completa.</blockquote>
+          </div>
+          <div class="stats-row">
+            <span class="stat-big">+25 años</span>
+            <span class="htag">TV</span>
+            <span class="htag">Infantil</span>
+            <span class="htag">EdTech</span>
+            <span class="htag">Editorial</span>
+            <span class="htag">IA aplicada a contenidos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="tstep">
+            <div class="icon"><img src="images/timeline-television.png" alt=""></div>
+            <h4>Televisión</h4>
+            <p>Entretenimiento que conecta</p>
+          </div>
+          <div class="tstep">
+            <div class="icon"><img src="images/timeline-branded-content.png" alt=""></div>
+            <h4>Branded content</h4>
+            <p>Historias para marcas y audiencias</p>
+          </div>
+          <div class="tstep">
+            <div class="icon"><img src="images/timeline-edtech.png" alt=""></div>
+            <h4>EdTech</h4>
+            <p>Contenido que educa, inspira y participa</p>
+          </div>
+          <div class="tstep">
+            <div class="icon"><img src="images/timeline-editorial.png" alt=""></div>
+            <h4>Editorial</h4>
+            <p>Libros y recursos para seguir descubriendo</p>
+          </div>
+          <div class="tstep">
+            <div class="icon"><img src="images/timeline-experiencias-digitales.png" alt=""></div>
+            <h4>Experiencias digitales</h4>
+            <p>De la idea al ecosistema</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <div class="wrap">
+      <h2 class="eyebrow-free-heading">Proyectos</h2>
+      <p class="section-lede">Distintas formas de convertir un mismo oficio —pensar contenidos e historias— en algo que se puede ver, leer, jugar o tocar.</p>
+
+      <!-- PAN Y CHOCOLATE -->
+      <div class="case-block">
+        <div>
+          <div class="case-tag">Serie infantil educativa y de entretenimiento · 3–6 años</div>
+          <h3>Pan y Chocolate</h3>
+          <p class="desc">Cada tarde, dos niños bajan a merendar a casa de la Abu y, junto a Pan y Chocolate —dos gatos curiosos y traviesos—, una situación cotidiana se convierte en una oportunidad para preguntar, descubrir y participar.</p>
+          <div class="aportacion">
+            <div class="label">Mi aportación</div>
+            <div class="skill-tags">
+              <span class="skill-tag" style="background:var(--coral-tint);">Estructura de contenidos</span>
+              <span class="skill-tag" style="background:var(--olive-tint);">Guion</span>
+              <span class="skill-tag" style="background:var(--sky-tint);">Diseño de participación</span>
+            </div>
+          </div>
+          <p class="desc">Elijo el tema y desarrollo los contenidos de cada episodio buscando que el aprendizaje nazca de forma natural de la historia: una pregunta, un gag, una conversación o un pequeño descubrimiento. El humor y la interacción con cámara convierten al niño en parte de la experiencia.</p>
+          <img class="flow-strip" src="images/pan-y-chocolate-flujo.png" alt="Flujo: Merendar, Descubrir, Participar, Jugar fuera">
+
+          <div class="muestras">
+            <div class="label">Ver una muestra</div>
+            <div class="muestra-list">
+              <span class="muestra-chip pending">Guion · "Cómo crece Rosendo"</span>
+              <span class="muestra-chip pending">Storyboard · "Cómo crece Rosendo"</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-media">
+          <img src="images/pan-y-chocolate.png" alt="Fotograma real de la serie Pan y Chocolate: la Abu con los dos gatos títere y una niña">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- HAPPY LEARNING -->
+      <div class="case-block">
+        <div class="case-media stack">
+          <img src="images/happy-learning-hero.png" alt="Plataforma Happy Learning en portátil, junto a la mascota panda">
+          <img src="images/happy-learning-stats.png" alt="600+ vídeos, 300 juegos digitales, 300 recursos, 10 libros interactivos, 3 cuadernos de vacaciones, 4 juegos de mesa" style="margin-top:14px;">
+        </div>
+        <div>
+          <div class="case-tag">Plataforma digital de aprendizaje · Infantil y Primaria</div>
+          <h3>Happy Learning</h3>
+          <p class="desc">Happy Learning evolucionó de un canal de vídeos educativos a una plataforma donde distintos contenidos se conectan para ofrecer diferentes formas de descubrir, comprender, practicar y aprender.</p>
+          <div class="aportacion">
+            <div class="label">Mi aportación</div>
+            <div class="skill-tags">
+              <span class="skill-tag" style="background:var(--coral-tint);">Estrategia de contenidos</span>
+              <span class="skill-tag" style="background:var(--olive-tint);">Learning Experience Design</span>
+              <span class="skill-tag" style="background:var(--sky-tint);">Desarrollo editorial</span>
+            </div>
+          </div>
+          <p class="desc">Participé en la definición del modelo de contenidos y en el diseño de experiencias que conectaban vídeo, lectura, juego digital y actividades, desarrollando un mismo tema a través de distintos formatos y momentos de aprendizaje.</p>
+          <div class="flow">
+            <span class="flow-step" style="background:var(--coral-tint);">VÍDEO</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--olive-tint);">LECTURA</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--sky-tint);">JUEGO DIGITAL</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--sun-tint);">ACTIVIDAD</span>
+          </div>
+          <div class="muestras">
+            <div class="label">Ver muestras</div>
+            <div class="muestra-list">
+              <span class="muestra-chip pending">Vídeo educativo</span>
+              <span class="muestra-chip pending">Juego digital</span>
+              <span class="muestra-chip pending">Experiencia fuera de pantalla</span>
+              <span class="muestra-chip pending">Libros digitales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- HIP Y HOP -->
+      <div class="case-block">
+        <div>
+          <div class="case-tag">Universo infantil multiplataforma</div>
+          <h3>Hip y Hop</h3>
+          <p class="desc">Hip y Hop son dos extraterrestres que llegan a la Tierra y descubren nuestro mundo con la curiosidad de quien lo ve todo por primera vez. Su universo se desarrolló en diferentes formatos, desde una serie infantil para YouTube hasta libros interactivos.</p>
+          <div class="aportacion">
+            <div class="label">Mi aportación</div>
+            <div class="skill-tags">
+              <span class="skill-tag" style="background:var(--coral-tint);">Desarrollo de contenidos</span>
+              <span class="skill-tag" style="background:var(--olive-tint);">Guion</span>
+              <span class="skill-tag" style="background:var(--sky-tint);">Narrativa multiplataforma</span>
+            </div>
+          </div>
+          <p class="desc">Desarrollo historias y contenidos manteniendo la personalidad de los personajes, el tono y la coherencia del universo narrativo, y adaptando la experiencia a las posibilidades de cada soporte.</p>
+          <div class="flow">
+            <span class="flow-step" style="background:var(--sun-tint);">PERSONAJES + UNIVERSO</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--sky-tint);">VÍDEO</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--olive-tint);">LIBRO INTERACTIVO</span>
+          </div>
+          <div class="muestras">
+            <div class="label">Ver muestras</div>
+            <div class="muestra-list">
+              <span class="muestra-chip pending">Episodio / vídeo</span>
+              <span class="muestra-chip pending">Libro interactivo</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-media" style="aspect-ratio:4/5; background: linear-gradient(150deg, var(--sun-tint), var(--coral-tint)); display:flex; align-items:center; justify-content:center;">
+          <div style="font-size:3.4rem;">👽🚀</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- EDUCA BORRAS -->
+      <div class="case-block">
+        <div class="case-media two-up">
+          <img src="images/educa-animales-fascinantes.png" alt="Caja del juego de mesa Animales Fascinantes, Happy Learning x Educa Borrás">
+          <img src="images/educa-planeta-tierra.png" alt="Tablero del juego Planeta Tierra, Happy Learning x Educa Borrás">
+        </div>
+        <div>
+          <div class="case-tag">Happy Learning × Educa Borrás · Juegos educativos de mesa</div>
+          <h3>Educa Borrás</h3>
+          <p class="desc">El universo y los contenidos de Happy Learning dieron el salto al juego físico a través de cuatro juegos de mesa, convirtiendo contenidos educativos en experiencias para aprender jugando y compartir con otros.</p>
+          <div class="aportacion">
+            <div class="label">Mi aportación</div>
+            <div class="skill-tags">
+              <span class="skill-tag" style="background:var(--coral-tint);">Conceptualización de contenidos</span>
+              <span class="skill-tag" style="background:var(--olive-tint);">Desarrollo de mecánicas</span>
+              <span class="skill-tag" style="background:var(--sky-tint);">Adaptación al juego</span>
+            </div>
+          </div>
+          <p class="desc">Participé en el desarrollo de los juegos trasladando contenidos y objetivos de aprendizaje a preguntas, retos, dinámicas y mecánicas de juego, pensadas para funcionar en un soporte completamente diferente.</p>
+          <div class="flow">
+            <span class="flow-step" style="background:var(--coral-tint);">CONTENIDO</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--sun-tint);">MECÁNICA</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--sky-tint);">JUEGO</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:var(--olive-tint);">EXPERIENCIA</span>
+          </div>
+          <div class="muestras">
+            <div class="label">Ver muestras</div>
+            <div class="muestra-list">
+              <a class="muestra-chip link" href="https://youtu.be/q4c4JuB07hk?si=WgX-l69Pa5Hrf8j4" target="_blank" rel="noopener">Vídeo del juego</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- LIBROS ILUSTRADOS -->
+      <div class="books-block">
+        <div class="case-tag">Editorial</div>
+        <h3>Libros ilustrados</h3>
+        <p class="desc">Además de escribir para pantalla, Martha crea álbumes ilustrados infantiles: historias cortas pensadas para leerse en voz alta.</p>
+        <div class="books-grid">
+          <div class="book">
+            <img src="images/libro-una-manana-azul.webp" alt="Portada del libro Una mañana azul, de Martha Paredes">
+            <p>Una mañana azul</p>
+          </div>
+          <div class="book">
+            <img src="images/libro-ojitos-de-luna-nueva.webp" alt="Portada del libro Ojitos de luna nueva, de Martha Paredes">
+            <p>Ojitos de luna nueva</p>
+          </div>
+          <div class="book">
+            <img src="images/libro-flora-mariposa.webp" alt="Portada del libro Flora mariposa, de Martha Paredes">
+            <p>Flora mariposa</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" style="padding-top:0;">
+    <div class="contact">
+      <h2>¿Tienes un contenido que podría convertirse en una experiencia completa?</h2>
+      <p>Cuéntame en qué estás pensando y para quién es. Te respondo con ideas concretas de por dónde empezar.</p>
+      <a href="mailto:hola@marthaparedes.com" class="btn btn-primary">Escribir a hola@marthaparedes.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Martha Paredes Pagliera — Content Strategist &amp; Learning Experience Designer
+</footer>
+
+</body>
+</html>
